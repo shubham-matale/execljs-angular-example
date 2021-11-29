@@ -108,4 +108,25 @@ export class ExcelServiceService {
       fs.saveAs(blob, 'CarData.xlsx');
     })
   }
+
+  // @ts-ignore
+  generateExcelForTheTemplate(header,data){
+    console.log(data)
+    let workbook = new Workbook();
+    let worksheet = workbook.addWorksheet('Car Data');
+    //Add Row and formatting
+    let titleRow = worksheet.addRow(header);
+    // @ts-ignore
+    data.forEach(d => {
+        let row = worksheet.addRow(d);
+
+
+      }
+    );
+
+    workbook.xlsx.writeBuffer().then((data) => {
+      let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      fs.saveAs(blob, 'CarData.xlsx');
+    })
+  }
 }
