@@ -29,7 +29,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/file-saver/src/FileSaver.js"
+            ]
           },
           "configurations": {
             "production": {
