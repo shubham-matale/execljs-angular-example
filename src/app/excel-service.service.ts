@@ -113,14 +113,12 @@ export class ExcelServiceService {
   generateExcelForTheTemplate(header,data){
     console.log(data)
     let workbook = new Workbook();
-    let worksheet = workbook.addWorksheet('Car Data');
+    let worksheet = workbook.addWorksheet('Sheet 1');
     //Add Row and formatting
     let titleRow = worksheet.addRow(header);
     // @ts-ignore
     data.forEach(d => {
         let row = worksheet.addRow(d);
-
-
       }
     );
 

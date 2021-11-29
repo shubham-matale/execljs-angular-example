@@ -14,7 +14,8 @@ export class AppComponent {
   today = new Date();
   endTime = new Date(new Date().setHours(this.today.getHours()+5))
    inputData = {
-    "planName":"Ghani",
+    "plantName":"Ghani",
+     "assetId":101,
     "startTime" : this.today,
     "assetName": "INV_01",
     "endTime": this.endTime,
@@ -30,7 +31,7 @@ export class AppComponent {
   generateTeamplate(){
 
 
-    let header = ['Plant',"Asset","Date"]
+    let header = ['Plant',"Asset_Id","Asset_Name","Timestamp"]
     for(let i of this.inputData["tags"]){
       header.push(i)
       header.push("Q_"+i);
@@ -47,7 +48,7 @@ export class AppComponent {
     for(let i=0;i<iterations;i++){
       now.setMinutes(now.getMinutes() + this.inputData["granularity"]);
       now = new Date(now);
-      let tempArr = ["GHANI","INV_01",this.datePipe.transform(now, 'dd/MM/YYYY hh:mm:00')]
+      let tempArr = [this.inputData['plantName'],this.inputData['assetId'],this.inputData['assetName'],this.datePipe.transform(now, 'dd/MM/YYYY hh:mm:00')]
       for(let i=0;i<iterations;i++){
         tempArr.push("")
         tempArr.push("")
